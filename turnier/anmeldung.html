@@ -1,0 +1,315 @@
+
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    
+    <!-- Link to Icons -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    
+    <!-- Link to NEW Main CSS (The one we just made) -->
+    <link rel="stylesheet" href="../css/style.css"> 
+
+    <!-- Keep specific form styles here if they are unique to this page -->
+    <style>
+        /* Form Specific Styles */
+        input, select, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            background: #1e1e1e; 
+            border: 1px solid #333; 
+            color: #fff; 
+            border-radius: 4px;
+            /* No need to define font-family here, body handles it */
+        }
+        input:focus { border-color: var(--gold); outline: none; }
+        
+        .btn-submit {
+            background-color: var(--gold); /* Use variable now! */
+            color: #000;
+            /* ... rest of button styles ... */
+        }
+    </style>
+</head>
+ <style>
+        
+            /* --- FORM SPECIFIC STYLES --- */
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            font-family: 'Montserrat', sans-serif;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; flex: 1; }
+
+        /* Header & Footer consistency */
+        .back-link { 
+            display: inline-block; margin-bottom: 20px; 
+            color: #d4af37; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; text-decoration: none;
+        }
+        .back-link:hover { color: #fff; }
+
+        h1 { font-family: 'Playfair Display', serif; color: #d4af37; text-align: center; margin-bottom: 10px; }
+        .intro { text-align: center; color: #aaa; margin-bottom: 40px; font-size: 0.9rem; }
+
+        /* Form Elements */
+        .form-section { margin-bottom: 20px; }
+        
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            color: #d4af37; 
+            font-weight: 600; 
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            background: #1e1e1e; 
+            border: 1px solid #333; 
+            color: #fff; 
+            border-radius: 4px; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        input:focus, select:focus, textarea:focus { border-color: #d4af37; outline: none; }
+        
+        /* Read-only field (TWZ) */
+        input[readonly] { background: #2a2a2a; color: #888; cursor: not-allowed; border-color: #222; }
+
+        /* Grid System for Rows */
+        .row { display: flex; gap: 20px; }
+        .col { flex: 1; }
+        .col-small { flex: 0 0 30%; } /* For Zip Code, Title, etc. */
+
+        /* Submit Button */
+        .btn-submit {
+            background-color: #d4af37; 
+            color: #000; 
+            border: none; 
+            padding: 15px 30px; 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            width: 100%; 
+            text-transform: uppercase;
+            margin-top: 20px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .btn-submit:hover { background-color: #b4942b; }
+
+        /* Footer Style */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        @media(max-width: 600px) { .row { flex-direction: column; gap: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Back Button -->
+    <a href="../Index.html" class="back-link">&larr; Back to Home / Zurück</a>
+
+    <h1>Registration / Anmeldung</h1>
+    <p class="intro">Please fill out the form below. / Bitte füllen Sie das Formular aus.</p>
+
+    <form action="senden.php" method="POST" id="regForm">
+
+        <!-- PERSONAL DATA -->
+        <div class="row">
+            <div class="col-small form-section">
+                <label>Anrede / Title</label>
+                <select name="anrede">
+                    <option value="Herr">Herr / Mr.</option>
+                    <option value="Frau">Frau / Ms.</option>
+                    <option value="Divers">Divers / Mx.</option>
+                </select>
+            </div>
+            <div class="col form-section">
+                <label>Titel / Academic Title</label>
+                <input type="text" name="titel" placeholder="Dr., Prof.">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-section">
+                <label>Vorname / First Name *</label>
+                <input type="text" name="vorname" required>
+            </div>
+            <div class="col form-section">
+                <label>Nachname / Last Name *</label>
+                <input type="text" name="nachname" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-section">
+                <label>Geburtsdatum / Date of Birth *</label>
+                <input type="date" name="geburtsdatum" required style="color-scheme: dark;"> 
+                <!-- style="color-scheme: dark" makes the calendar popup dark in modern browsers -->
+            </div>
+            <div class="col form-section">
+                 <!-- Spacer or extra field -->
+            </div>
+        </div>
+
+        <!-- ADDRESS -->
+        <div class="form-section">
+            <label>Straße / Street Address</label>
+            <input type="text" name="strasse">
+        </div>
+        
+        <div class="row">
+            <div class="col-small form-section">
+                <label>PLZ / Zip Code</label>
+                <input type="text" name="plz">
+            </div>
+            <div class="col form-section">
+                <label>Ort / City</label>
+                <input type="text" name="ort">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>Land / Country</label>
+            <select name="land">
+            <option value="Deutschland" selected>Deutschland</option>
+            <option value="Algeria">Algeria /Algerien </option>
+            <option value="Australia">Australia / Australien </option>
+            <option value="Oesterreich">Austria / Österreich </option>
+            <option value="China">China / China </option>
+            <option value="Frankreich">France / Frankreich</option>
+            <option value="Greece">Greece / Griechenland</option>
+            <option value="India">India / Indien </option>
+            <option value="Italy">Italy / Italien</option>
+            <option value="Netherlands">Netherlands / Holland</option>
+            <option value="Polen">Poland / Polen</option>
+            <option value="Spain">Spain / Spanien</option>
+            <option value="Schweiz">Switzerland / Schweiz</option>
+            <option value="India">Ukraine / Ukraina </option>
+            <option value="USA">USA / USA </option>
+            <option value="Other"> Other / Please provide your country name in the comments below </option>
+            </select>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="row">
+            <div class="col form-section">
+                <label>E-Mail *</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="col form-section">
+                <label>Telefon / Phone</label>
+                <input type="text" name="telefon">
+            </div>
+        </div>
+
+        <hr style="border:0; border-top:1px solid #333; margin: 30px 0;">
+
+        <!-- CHESS DATA -->
+        <div class="form-section">
+            <label>Verein / Chess Club</label>
+            <input type="text" name="verein">
+        </div>
+
+        <div class="row">
+            <div class="col form-section">
+                <label>FIDE-ID</label>
+                <input type="text" name="fide_id">
+            </div>
+            <div class="col form-section">
+                <label>FIDE Titel / Title</label>
+                <select name="fide_titel">
+                    <option value="">(Kein Titel / No Title)</option>
+                    <option value="GM">GM</option>
+                    <option value="IM">IM</option>
+                    <option value="FM">FM</option>
+                    <option value="CM">CM</option>
+                    <option value="WGM">WGM</option>
+                    <option value="WIM">WIM</option>
+                    <option value="WFM">WFM</option>
+                    <option value="WCM">WCM</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-section">
+                <label>DWZ</label>
+                <input type="number" name="dwz" id="dwz" placeholder="0">
+            </div>
+            <div class="col form-section">
+                <label>ELO</label>
+                <input type="number" name="elo" id="elo" placeholder="0">
+            </div>
+            <div class="col form-section">
+                <label>TWZ (Auto)</label>
+                <input type="text" name="twz" id="twz" readonly title="Calculated automatically / Automatisch berechnet">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>Turniergruppe / Tournament Group *</label>
+            <select name="gruppe" required>
+                <option value="" disabled selected>-- Bitte wählen / Please choose --</option>
+                <option value="A-Open">A-Open (> 1900 TWZ)</option>
+                <option value="B-Open">B-Open (< 2000 TWZ)</option>
+                
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label>Kommentar / Comment</label>
+            <textarea name="kommentar" rows="4"></textarea>
+        </div>
+        
+        <!-- PRIVACY -->
+        <div class="form-section" style="font-size: 0.85rem; color: #ccc; background: #1a1a1a; padding: 15px; border-radius: 4px;">
+            <input type="checkbox" required style="width: auto; margin-right: 10px;">
+            I agree to the storage of my data for tournament organization. / Ich stimme der Speicherung meiner Daten für die Turnierorganisation zu. 
+            (<a href="datenschutz.html" target="_blank" style="color:#d4af37;">Privacy Policy / Datenschutz</a>).
+        </div>
+
+        <button type="submit" class="btn-submit">Register Now / Verbindlich Anmelden</button>
+
+    </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Schachclub Böblingen 1975 e.V.</p>
+</footer>
+
+<!-- AUTO-CALCULATE TWZ -->
+<script>
+    const dwzInput = document.getElementById('dwz');
+    const eloInput = document.getElementById('elo');
+    const twzInput = document.getElementById('twz');
+
+    function calculateTWZ() {
+        const dwz = parseInt(dwzInput.value) || 0;
+        const elo = parseInt(eloInput.value) || 0;
+        // Logic: Take the higher rating
+        const maxVal = Math.max(dwz, elo);
+        twzInput.value = maxVal > 0 ? maxVal : '';
+    }
+
+    dwzInput.addEventListener('input', calculateTWZ);
+    eloInput.addEventListener('input', calculateTWZ);
+</script>
+
+</body>
+</html>

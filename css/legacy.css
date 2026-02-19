@@ -1,0 +1,71 @@
+/* legacy.css - Styles for Old HTML Pages */
+
+/* 1. Force Dark Background & Font */
+body {
+    background-color: #121212 !important;
+    color: #f5f5f5 !important;
+    font-family: 'Montserrat', sans-serif !important; /* Will fallback to sans-serif if font not linked */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 2. Style Links (Gold) */
+a {
+    color: #d4af37 !important;
+    text-decoration: none;
+    transition: 0.3s;
+}
+a:hover {
+    color: #fff !important;
+    text-decoration: underline;
+}
+
+/* 3. Style Headings */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif !important; /* Fallback to serif */
+    color: #d4af37 !important;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* 4. THE MAGIC: Transform Old Tables */
+table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-collapse: collapse !important;
+    background-color: #1e1e1e !important; /* Card Background */
+    border: 1px solid #333 !important;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Table Headers */
+th {
+    background-color: #000 !important;
+    color: #d4af37 !important;
+    padding: 15px !important;
+    text-align: left;
+    border-bottom: 2px solid #d4af37 !important;
+}
+
+/* Table Cells */
+td {
+    padding: 10px 15px !important;
+    border-bottom: 1px solid #333 !important;
+    color: #ccc !important;
+}
+
+/* Striped Rows (Zebra look for readability) */
+tr:nth-child(even) {
+    background-color: #252525 !important;
+}
+tr:hover {
+    background-color: #333 !important;
+}
+
+/* 5. Centering Content */
+center {
+    text-align: center; /* Fixes old <center> tags */
+}

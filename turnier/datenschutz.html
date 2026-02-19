@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Böblinger Open</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+   
+    <style>
+      
+        /* 1. Montserrat Light (300) */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            /* CHANGE THE FILENAME INSIDE '' TO MATCH YOURS EXACTLY */
+            src: url('../fonts/montserrat-light.woff2') format('woff2');
+        }
+
+        /* 2. Montserrat Regular (400) */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../fonts/montserrat-regular.woff2') format('woff2');
+        }
+
+        /* 3. Montserrat SemiBold (600) */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            src: url('../fonts/montserrat-semibold.woff2') format('woff2');
+        }
+
+        /* 4. Playfair Display Bold (700) */
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: normal;
+            font-weight: 700;
+            src: url('../fonts/playfair-display-bold.woff2') format('woff2');
+        }  /* --- REUSE THEME --- */
+        :root {
+            --bg-dark: #121212;
+            --gold: #d4af37;
+            --text-white: #f5f5f5;
+            --text-gray: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        /* Typography */
+        h1 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2.5rem; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        h2 { font-family: 'Playfair Display', serif; color: #fff; margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem; }
+        h3 { font-size: 1.1rem; color: var(--gold); margin-top: 25px; margin-bottom: 10px; }
+        p { color: #ccc; margin-bottom: 15px; }
+        
+        /* Back Button */
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 30px; 
+            color: var(--gold); 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-size: 0.9rem;
+            border: 1px solid var(--gold);
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+        .back-link:hover { background: var(--gold); color: #000; }
+
+        /* Language Switch Logic */
+        body.lang-en .lang-de { display: none !important; }
+        body.lang-de .lang-en { display: none !important; }
+    </style>
+</head>
+
+<!-- Default Language: German (Safer for Legal Texts) -->
+<body class="lang-de">
+
+    <div class="container">
+        <!-- Back Button -->
+        <a href="../index.html" class="back-link">&larr; Back to Tournament / Zurück</a>
+        
+        <!-- Language Toggles (Simple text link) -->
+        <div style="float: right; margin-top: 10px; cursor: pointer; color: #888;" onclick="toggleLanguage()">
+            EN | DE
+        </div>
+
+        <!-- CONTENT -->
+        <h1 class="lang-en">Privacy Policy</h1>
+        <h1 class="lang-de">Datenschutzerklärung</h1>
+
+        <h3 class="lang-en">1. General Overview</h3>
+        <h3 class="lang-de">1. Datenschutz auf einen Blick</h3>
+        <p class="lang-en">The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations.</p>
+        <p class="lang-de">Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften.</p>
+
+        <h3 class="lang-en">2. Hosting & External Content</h3>
+        <h3 class="lang-de">2. Hosting & Externe Inhalte</h3>
+        
+        <p><strong>Google Maps</strong></p>
+        <p class="lang-en">This site uses the Google Maps map service. To use the functions of Google Maps, it is necessary to save your IP address.</p>
+        <p class="lang-de">Diese Seite nutzt den Kartendienst Google Maps. Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern.</p>
+
+        <p><strong>Google Forms</strong></p>
+        <p class="lang-en">If you use the registration form embedded on this website, the data you enter is processed by Schachverein Böblingen 1975 e.V. </p>
+        <p class="lang-de">Wenn Sie das eingebettete Anmeldeformular nutzen, werden die eingegebenen Daten über Schachverein Böblingen 1975 e.V. verarbeitet.</p>
+
+        <br><br>
+        <hr style="border-color: #333;">
+        <p style="font-size: 0.8rem; text-align: center; margin-top: 20px;">&copy; Schachclub Böblingen 1975 e.V. <e class="V"></e></p>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.replace('lang-en', 'lang-de');
+            } else {
+                body.classList.replace('lang-de', 'lang-en');
+            }
+        }
+    </script>
+</body>
+</html>

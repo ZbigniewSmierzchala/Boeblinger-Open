@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - Böblinger Open</title>
+    
+    <!-- Link to Local Icons & Fonts -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    
+    <!-- Reuse Fonts from your folder -->
+    <style>
+        @font-face { font-family: 'Montserrat'; font-weight: 400; src: url('../fonts/montserrat-regular.woff2') format('woff2'); }
+        @font-face { font-family: 'Playfair Display'; font-weight: 700; src: url('../fonts/playfair-display-bold.woff2') format('woff2'); }
+
+        /* --- THEME --- */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --gold: #d4af37;
+            --text-white: #f5f5f5;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- SUCCESS CARD --- */
+        .success-card {
+            background: var(--bg-card);
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Top Image Area */
+        .hero-image {
+            height: 200px;
+            width: 100%;
+            position: relative;
+            background: url('../images/2Springer.jpg') center/cover no-repeat;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); /* Darkens the image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animated Checkmark Circle */
+        .check-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both;
+        }
+
+        .check-icon {
+            color: #000;
+            font-size: 3rem;
+        }
+
+        /* Content Area */
+        .content { padding: 40px; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        p { color: #ccc; margin-bottom: 30px; line-height: 1.6; }
+
+        /* Next Steps Box */
+        .info-box {
+            background: #252525;
+            border-left: 3px solid var(--gold);
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        .info-box strong { color: #fff; display: block; margin-bottom: 5px; }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: #000;
+            padding: 15px 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #b4942b; transform: translateY(-2px); }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="success-card">
+        
+        <!-- IMAGE HEADER -->
+        <div class="hero-image">
+            <div class="hero-overlay">
+                <div class="check-circle">
+                    <i class="fas fa-check check-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEXT CONTENT -->
+        <div class="content">
+            <h1>Registration Successful!<br><span style="font-size: 1.5rem; color: #fff;">Anmeldung erfolgreich!</span></h1>
+            
+            <p>
+                We have received your registration data. A confirmation email has been sent to your address.<br><br>
+                Wir haben Ihre Daten erhalten. Eine Bestätigungs-E-Mail wurde an Ihre Adresse gesendet.
+            </p>
+
+            <!-- NEXT STEPS REMINDER -->
+            <div class="info-box">
+                <strong><i class="fas fa-info-circle" style="color:var(--gold)"></i> Next Steps / Nächste Schritte:</strong>
+                Please transfer the entry fee to the bank account mentioned in the email to confirm your spot.<br><br>
+                Bitte überweisen Sie das Startgeld  auf das in der E-Mail genannte Konto, um Ihren Startplatz zu bestätigen.
+            </div>
+
+            <a href="../Index.html" class="btn">
+                Back to Tournament / Zurück
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
