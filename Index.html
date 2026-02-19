@@ -1,274 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Böblinger Open</title>
+    <link rel="icon" href="images/logo_ganz_neu.jpg" type="image/x-icon">
+     <link rel="stylesheet" href="css/all.min.css">
+     <link rel="stylesheet" href="css/style.css">
     
-   
-    <style>
-          /* --- LOCAL FONTS (WOFF2) --- */
-
-        /* 1. Montserrat Light (300) */
-        @font-face {
-            font-family: 'Montserrat';
-            font-style: normal;
-            font-weight: 300;
-            /* CHANGE THE FILENAME INSIDE '' TO MATCH YOURS EXACTLY */
-            src: url('fonts/montserrat-light.woff2') format('woff2');
-        }
-
-        /* 2. Montserrat Regular (400) */
-        @font-face {
-            font-family: 'Montserrat';
-            font-style: normal;
-            font-weight: 400;
-            src: url('fonts/montserrat-regular.woff2') format('woff2');
-        }
-
-        /* 3. Montserrat SemiBold (600) */
-        @font-face {
-            font-family: 'Montserrat';
-            font-style: normal;
-            font-weight: 600;
-            src: url('fonts/montserrat-semibold.woff2') format('woff2');
-        }
-
-        /* 4. Playfair Display Bold (700) */
-        @font-face {
-            font-family: 'Playfair Display';
-            font-style: normal;
-            font-weight: 700;
-            src: url('fonts/playfair-display-bold.woff2') format('woff2');
-        }
-       /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --gold: #d4af37;
-            --gold-hover: #b4942b;
-            --text-white: #f5f5f5;
-            --text-gray: #a0a0a0;
-            --padding-std: 80px 20px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-        }
-
-        /* --- LANGUAGE SWITCH LOGIC --- */
-        body.lang-en .lang-de { display: none !important; }
-        body.lang-de .lang-en { display: none !important; }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-        }
-        
-        h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
-        
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-
-        /* --- NAVIGATION --- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(18, 18, 18, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #333;
-        }
-
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--gold); }
-
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a:hover { color: var(--gold); }
-
-        .lang-switch {
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 5px 15px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        .lang-switch:hover { background: var(--gold); color: #000; }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('images/chess.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .hero h1 { font-size: 4rem; margin-bottom: 15px; color: #fff; line-height: 1.1; }
-        .hero p { font-size: 1.2rem; color: #ccc; max-width: 600px; margin-bottom: 30px; }
-        
-        .btn {
-            background-color: var(--gold);
-            color: #000;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            display: inline-block;
-            cursor: pointer;
-        }
-        .btn:hover { background-color: var(--gold-hover); transform: translateY(-2px); }
-
-        /* --- NEW SPONSOR BAR (Inside Hero) --- */
-        .hero-sponsors {
-            margin-top: 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .sponsor-list {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-       /* --- UPDATED SPONSOR LOGOS (White Tile Style) --- */
-       .hero-logo {
-            height: 60px;
-            width: auto;
-            background-color: #fff;
-            
-            /* The Gold Border */
-            border: 4px solid var(--gold); 
-            
-            padding: 10px 15px;
-            border-radius: 6px;
-            
-            /* Grayscale to Color effect */
-            filter: grayscale(100%); 
-            opacity: 0.9;
-            transition: all 0.3s ease;
-        }
-
-        .hero-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: translateY(-3px);
-            
-            /* On hover, make the border glow slightly */
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); 
-            border-color: var(--gold-hover);
-        }
-
-        .hero-logo:hover {
-            opacity: 1;
-            filter: grayscale(0%) brightness(100%);
-            transform: scale(1.1);
-        }
-
-        .sponsor-ask {
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 10px;
-        }
-        .sponsor-ask a { color: var(--gold); text-decoration: underline; }
-
-        /* --- SECTIONS GENERAL --- */
-        section { padding: var(--padding-std); max-width: 1200px; margin: 0 auto; }
-        .bg-alt { background-color: var(--bg-card); width: 100%; max-width: 100%; }
-        .bg-alt .content-wrapper { max-width: 1200px; margin: 0 auto; padding: var(--padding-std); }
-
-        /* --- INFO GRID --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: #252525;
-            padding: 30px;
-            border-left: 3px solid var(--gold);
-        }
-        .card h3 { margin-bottom: 15px; color: #fff; }
-
-        /* --- FORMS & IFRAMES --- */
-        .iframe-container {
-            width: 100%;
-            height: 500px;
-            background: #252525;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            border: 1px solid #333;
-        }
-
-        /* --- CONTACT --- */
-        .contact-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* --- LEGAL SECTION --- */
-        .legal-section {
-            background-color: #000;
-            color: #888;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-            border-top: 1px solid #333;
-        }
-        .legal-section h2 { font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; color: #ccc; text-align: left; }
-        .legal-section h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px; color: #aaa; }
-        .legal-section p, .legal-section ul { margin-bottom: 15px; }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #000;
-            font-size: 0.9rem;
-            color: #666;
-            border-top: 1px solid #222;
-        }
-        .legal-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-            font-size: 0.8rem;
-        }
-        .legal-links a { text-decoration: underline; color: #666; }
-        .legal-links a:hover { color: var(--text-white); }
-
-        /* --- MOBILE --- */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .hero-sponsors { margin-top: 40px; }
-        }
-    </style>
 </head>
 
 <body class="lang-en">
@@ -280,11 +19,11 @@
         <ul class="nav-links">
             <li><a href="#home"><span class="lang-en">Home</span><span class="lang-de">Start</span></a></li>
             <li><a href="#tournament"><span class="lang-en">Tournament</span><span class="lang-de">Turnier</span></a></li>
-            <li><a href="#register"><span class="lang-en">Registration</span><span class="lang-de">Anmeldung</span></a></li>
+            <li><a href="turnier/anmeldung.html"><span class="lang-en">Registration</span><span class="lang-de">Anmeldung</span></a></li>
             <li><a href="#participants"><span class="lang-en">Participants</span><span class="lang-de">Teilnehmer</span></a></li>
             <li><a href="#venue"><span class="lang-en">Venue</span><span class="lang-de">Spielort</span></a></li>
             <li><a href="#results"><span class="lang-en">Results</span><span class="lang-de">Ergebnisse</span></a></li>
-            <li><a href="archive.html"><span class="lang-en">Archive</span><span class="lang-de">Archiv</span></a></li>
+            <li><a href="./turnier/archive.html"><span class="lang-en">Archive</span><span class="lang-de">Archiv</span></a></li>
             <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a></li>
         </ul>
         <button class="lang-switch" onclick="toggleLanguage()">EN | DE</button>
@@ -350,13 +89,13 @@
                 <h3 class="lang-en">Entry fee</h3>
                 <h3 class="lang-de">Startgeld</h3>
                 <p class="lang-en">
-                    A-Open: 80€ (youth, born 2005 or later: 70 €) <br>  B-Open: 70 € (youth, born 2005 or later: 60 €)  <br> 
-                    <br>Registration is possible online only with advance bank transfer. Cash payment on the day of play is not accepted.<br>
+                 A-Open: 80€ (youth, born 2005 or later: 70€) <br>  B-Open: 70€ (youth, born 2005 or later: 60 €)<br> 
+                 <br>Registration is possible online only with advance bank transfer. Cash payment on the day of play is not accepted.<br>
                  <br>  GM, IM, WGM, and WIM are exempt from the entry fee.
                 </p>
                 <p class="lang-de">
-                   A-Open: 80€ (Jugendꢀ abꢀ Jg.ꢀ2005:70€)e<br>
-                   <br>B-Open: 70 € (Jugend ab Jg:2005: 60 €) <br>
+                   A-Open: 80€ (Jugend ab Jg. 2005: 70€)<br>
+                   <br>B-Open: 70 € (Jugend ab Jg: 2005: 60€) <br>
                    <br> GM, IM, WGM, WIM sind startgeldfrei<br>
                   
 
@@ -393,43 +132,65 @@
         </div>
     </section>
 
-    <!-- REGISTRATION -->
-   <!-- REGISTRATION SECTION (Button Version) -->
+   <!-- REGISTRATION SECTION -->
     <div class="bg-alt" id="register">
         <div class="content-wrapper">
             <h2 class="lang-en">Registration</h2>
             <h2 class="lang-de">Anmeldung</h2>
             
-            <p style="text-align: center; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                <span class="lang-en">
-                    Registration is hosted on our partner portal. <br>
-                    Requires Entry fee payable via bank transfer 
-                </span>
-                <span class="lang-de">
-                    Die Anmeldung erfolgt über unser Partner-Portal. <br>
-                    Startgeld zahlbar per Überweisung 
-                </span>
+            <!-- ======================================================= -->
+            <!-- STATE 1: REGISTRATION IS OPEN (Use this during Season)  -->
+            <!-- ======================================================= -->
+            <!-- 
+            <p style="text-align: center; margin-bottom: 40px; max-width: 600px; margin: 0 auto;">
+                <span class="lang-en">Registration is open! Entry fee: €50.</span>
+                <span class="lang-de">Die Anmeldung ist geöffnet! Startgeld: 50 €.</span>
             </p>
             
-            <!-- BIG CTA BUTTON -->
-            <div style="text-align: center;">
+            <div style="text-align: center; margin-top: 30px;">
                 <a href="https://boeblinger-open.de/index.php/de/anmeldung" target="_blank" class="btn" style="padding: 20px 50px; font-size: 1.2rem;">
                     <span class="lang-en">Open Registration Form &rarr;</span>
                     <span class="lang-de">Zum Anmeldeformular &rarr;</span>
                 </a>
-                
-                <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">
-                    <span class="lang-en">* Opens in a new window</span>
-                    <span class="lang-de">* Öffnet in einem neuen Fenster</span>
-                </p>
             </div>
+            -->
+
+            <!-- ======================================================= -->
+            <!-- STATE 2: REGISTRATION IS CLOSED (Use this Off-Season)   -->
+            <!-- ======================================================= -->
+            
+            <div style="text-align: center; border: 1px solid #333; padding: 40px; border-radius: 8px; background: #1a1a1a;">
+                
+                <i class="fas fa-hourglass-half" style="font-size: 3rem; color: #666; margin-bottom: 20px;"></i>
+                
+                <h3 class="lang-en" style="color: #fff; margin-bottom: 10px;">Registration Closed</h3>
+                <h3 class="lang-de" style="color: #fff; margin-bottom: 10px;">Anmeldung geschlossen</h3>
+                
+                <p class="lang-en" style="color: #aaa; margin-bottom: 30px;">
+                    Registration for the 2026 tournament will open in <strong>October 2026</strong>.
+                </p>
+                <p class="lang-de" style="color: #aaa; margin-bottom: 30px;">
+                    Die Anmeldung für das Turnier 2026 öffnet im <strong>October 2026</strong>.
+                </p>
+
+                <!-- "Notify Me" Button (Smart Move: Collect emails!) -->
+                <a href="mailto:vorstand@sc-boeblingen.de?subject=Notify%20me%20when%20registration%20opens" class="btn" style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">
+                    <i class="far fa-bell"></i>
+                    <span class="lang-en">Notify me when it starts</span>
+                    <span class="lang-de">Benachrichtigung bei Start</span>
+                </a>
+
+            </div>
+            
+            <!-- ======================================================= -->
+
         </div>
     </div>
 
     <!-- PARTICIPANTS (UPDATED) -->
     <section id="participants">
-        <h2 class="lang-en">Participants</h2>
-        <h2 class="lang-de">Teilnehmer</h2>
+        <h2 class="lang-en">Participants 2025</h2>
+        <h2 class="lang-de">Teilnehmer 2025</h2>
         
         <div style="text-align: center; max-width: 800px; margin: 0 auto;">
             <!-- Description of Groups -->
@@ -467,31 +228,87 @@
     </section>
 
     <!-- VENUE -->
+    
+<!-- VENUE & TRAVEL (UPDATED WITH EXPANDABLE INFO) -->
+    <!-- VENUE & TRAVEL (UPDATED WITH EXPANDABLE INFO) -->
     <div class="bg-alt" id="venue">
         <div class="content-wrapper">
             <h2 class="lang-en">Venue & Travel</h2>
             <h2 class="lang-de">Spielort & Anreise</h2>
             
+            <!-- Standard Info Grid -->
             <div class="info-grid" style="margin-bottom: 30px;">
                 <div class="card">
                     <h3>Location</h3>
-                    <p>elaya hotel<br>Otto-Lilienthal-Str. 18 71034 Böblingen-Hulb</p>
+                     <p> <b>elaya hotel</b><br>Otto-Lilienthal-Str. 18 71034 Böblingen-Hulb</p>
                 </div>
                 <div class="card">
                     <h3 class="lang-en">Transport</h3>
                     <h3 class="lang-de">Anfahrt</h3>
-                    <p class="lang-en">By car: Parking lot directly at hotel. From airport Stuttgart around 40 minutes . Take S2, then S1 and furtehr by bus 705, 723 0or 728. </p>
-                    <p class="lang-de">Parken am Parkplatz direkt neben dem Hotel. U-Bahn U2 bis Alexanderplatz.</p>
+                    <p class="lang-en">Parking is available at the hotel's nearby parking lot. For public transport, we recommend using the <a href="https://www.vvs.de/service/apps-dienste/vvs-mobil" target="_blank" ><b>VVS-App</b></p>
+                    <p class="lang-de">Parken am Parkplatz direkt neben dem Hotel. Für Anreise mit öffentlichen Verkehrsmittel empfehlen wir die Nutzung der <a href="https://www.vvs.de/service/apps-dienste/vvs-mobil" target="_blank" ><b>VVS-App</b> </a> .</p>
                 </div>
             </div>
 
+            <!-- TOGGLE BUTTON -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <button onclick="toggleVenueInfo()" id="venueBtn" class="btn" style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">
+                    <span class="lang-en">View Hotel Rates & Details &darr;</span>
+                    <span class="lang-de">Hotelangebot & Details &darr;</span>
+                </button>
+            </div>
+
+            <!-- HIDDEN INFO BLOCK -->
+            <div id="venueInfo" style="display: none; margin-bottom: 40px; border-left: 2px solid var(--gold); padding-left: 20px;">
+                
+                <!-- Section 1: Hotels -->
+                <h3 class="lang-en" style="color: #fff; margin-bottom: 10px;">Partner Hotel & Special Rates</h3>
+                <h3 class="lang-de" style="color: #fff; margin-bottom: 10px;">Partnerhotel & Sonderkonditionen</h3>
+                
+                <p class="lang-en"> 
+               The <strong>elaya Hotel Böblingen</strong> (formerly Mercure and Hotel ANA) is kindly providing us with rooms at special conditions this year. 
+               To receive this special rate, please mention the keyword "Schachturnier" when making your reservation.
+               <br>Prices: Single room at Elaya: €79, Single room in apartment: €99, Double room €99, Double room in apartment € 119, Three-bedroom: € 119, 
+               Three-bedroom in apartment: € 139.00. <br>Booking code: "Schachturnier" (Valid until December 31, 2025). Please register via  <a href="mailto:stuttgart-boeblingen@elaya-hotels.com?subject=Registration Schachturnier"style="color: var(--gold); text-decoration: underline;"> E-Mail </a> email or phone at the hotel +49 7031 677990 - (Important: Do not use the online portal of the Elaya Hotel! If you encounter any booking issues, please contact Mario Born!)
+                </p>
+                
+                <p class="lang-de">
+                <strong>elaya Hotel Böblingen</strong><br> Das elaya Hotel in Böblingen (früher Mercure und Hotel ANA) stellt uns dieses Jahr wieder die Häuser mit Zimmern zu Sonderkonditionen zur Verfügung.
+                Um diesen Sonderpreis gewährt zu bekommen, muss bei der Reservierung das Stichwort „Schachturnier" genannt. <br> Preise: EZ im elaya : 79,00 €, EZ im Apartment: 99,00 €, DZ im elaya : 99,00 €, DZ im Apartment: 119,00 €,  3-Bettz. im elaya : 119,00 €
+-Bettz. im Apartment (früher ANA Living): 139,00 €.<br> Buchungscode: "Schachturnier" (Gültig bis 31.12.2025).<br> Anmelden bitte per  <a href="mailto:stuttgart-boeblingen@elaya-hotels.com?subject=Registration Schachturnier"style="color: var(--gold); text-decoration: underline;"> E-Mail </a> oder telefonisch im Hotel - +49 7031 677990
+ (Ganz wichtig: Nicht das Onlineportal des elaya Hotel benutzen! Bei Buchungsproblemen Mario Born kontaktieren!)
+                </p>
+                <div style="text-align: center;">
+    <!-- MAILTO BUTTON -->
+    <!-- Replace 'info@schachverein.de' with your real email -->
+    <a href="mailto:stuttgart-boeblingen@elaya-hotels.com?subject=Registration Schachturnier" class="btn" style="padding: 10px 20px; font-size: 1rem;">
+        <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+        <span class="lang-en">Send Registration Email</span>
+        <span class="lang-de">Anmeldung per E-Mail senden</span>
+    </a>
+
+    </div>
+                <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+
+                <!-- Section 2: Parking / Detailed Travel -->
+                <h3 class="lang-en" style="color: #fff; margin-bottom: 10px;">Parking & Directions</h3>
+                <h3 class="lang-de" style="color: #fff; margin-bottom: 10px;">Parken & Wegbeschreibung</h3>
+                
+                <p class="lang-en">
+                    Parking is available at the hotel's nearby parking lot. For public transport, we recommend using the <a href="https://www.vvs.de/service/apps-dienste/vvs-mobil" target="_blank" ><b>VVS-App</b></p>
+                </p>
+                <p class="lang-de">
+                     Parken am Parkplatz direkt neben dem Hotel. Für Anreise mit öffentlichen Verkehrsmittel empfehlen wir die Nutzung der <a href="https://www.vvs.de/service/apps-dienste/vvs-mobil" target="_blank" ><b>VVS-App</b> </a>
+                </p>
+            </div>
+
+                <!-- MAP EMBED -->
             <div class="iframe-container">
                 <span class="lang-en"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.0345646959126!2d8.987389199999999!3d48.685703800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799e079f8488b87%3A0xae28acc18321faab!2sOtto-Lilienthal-Stra%C3%9Fe%2018%2C%2071034%20B%C3%B6blingen!5e0!3m2!1sen!2sde!4v1768824841862!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></span>
                 <span class="lang-de"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.0345646959126!2d8.987389199999999!3d48.685703800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799e079f8488b87%3A0xae28acc18321faab!2sOtto-Lilienthal-Stra%C3%9Fe%2018%2C%2071034%20B%C3%B6blingen!5e0!3m2!1sen!2sde!4v1768824841862!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></span>
             </div>
         </div>
     </div>
-
     <!-- RESULTS & ARCHIVE -->
     <section id="results">
         <h2 class="lang-en">Results & Archive</h2>
@@ -502,7 +319,7 @@
                 <h3 class="lang-en">2025 Results</h3>
                 <h3 class="lang-de">Ergebnisse 2025</h3>
                 <p class="lang-en">Final results after 9 rounds (A-Open).</p>
-                <p class="lang-de">Endstand nach 9 Runden (A-Open)) .</p>
+                <p class="lang-de">Endstand nach 9 Runden (A-Open) .</p>
                 <br>
                 <a href="https://s1.chess-results.com/tnr1264403.aspx?lan=0&art=4&turdet=YES&flag=30&SNode=S0" target="_blank" rel="noopener" style="color: var(--gold); font-weight: bold;">Link to Chess-Results &rarr;</a>
             </div>
@@ -552,10 +369,7 @@
                 <p class="lang-de">Angaben gemäß § 5 TMG</p>
 
                 <p>
-                    <strong>Schachclub Böblingen 1975 e.V</strong><br>
-                    Schwenningerstr. 26<br>
-                    71065 Sindelfingen<br>
-                    Germany / Deutschland
+                    <strong>Schachclub Böblingen 1975 e.V</strong>  Schwenningerstr. 26, 71065 Sindelfingen, Germany / Deutschland
                 </p>
 
                 <h3 class="lang-en">Represented by:</h3>
@@ -565,8 +379,7 @@
                 <h3 class="lang-en">Contact:</h3>
                 <h3 class="lang-de">Kontakt:</h3>
                 <p>
-                    Phone: +49 (176) 61985487<br>
-                    Email: vorstand@sc-boeblingen.de
+                    Phone: +49 (176) 61985487, Email: vorstand@sc-boeblingen.de
                 </p>
 
                 <h3 class="lang-en">Register Entry:</h3>
@@ -580,20 +393,14 @@
             <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
 
             <div id="privacy">
-                <h2 class="lang-en">Privacy Policy</h2>
+                <h2 class="lang-en">Privacy Policy (General Overview)</h2>
                 <h2 class="lang-de">Datenschutzerklärung</h2>
-
-                <h3 class="lang-en">1. General Overview</h3>
-                <h3 class="lang-de">1. Datenschutz auf einen Blick</h3>
-                <p class="lang-en">The operators of these pages take the protection of your personal data very seriously.</p>
-                <p class="lang-de">Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst.</p>
-
-                <h3 class="lang-en">2. Hosting & External Content</h3>
-                <h3 class="lang-de">2. Hosting & Externe Inhalte</h3>
-                
-                <p><strong>Google Fonts, Maps & Forms</strong></p>
-                <p class="lang-en">This site uses Google services. Your IP address may be sent to Google servers in the USA.</p>
-                <p class="lang-de">Diese Seite nutzt Google Dienste. Ihre IP-Adresse kann an Google in die USA übertragen werden.</p>
+                <p class="lang-en">The operators of these pages take the protection of your personal data very seriously. This site uses Google services. Your IP address may be sent to Google servers in the USA</p>
+                <p class="lang-de">Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Diese Seite nutzt Google Dienste. Ihre IP-Adresse kann an Google in die USA übertragen werden.</p>              
+                <p class="lang-en"><a href="turnier/impressum.html" target="_blank" style="color: var(--gold);"> See for more details</a> <span class="lang-en">&rarr;</span></p>
+                <p class="lang-de"><a href="turnier/datenschutz_voll.htm"target="_blank" style="color: var(--gold);">Mehr Informationen finden Sie hier </a> <span class="lang-de">&rarr;</span></p>
+                    
+               
             </div>
         </div>
     </section>
@@ -602,13 +409,13 @@
         <p>&copy; 2026 Schachclub Böblingen 1975 e.V. </e>.</p>
         <div class="legal-links">
             <!-- Impressum stays on the page (scrolling down) -->
-            <a href="#impressum">
+            <a href="turnier/impressum.html">
                 <span class="lang-en">Legal Notice</span>
                 <span class="lang-de">Impressum</span>
             </a>
             
             <!-- Privacy Policy opens the NEW file -->
-            <a href="datenschutz.html" target="_blank">
+            <a href="turnier/datenschutz_voll.htm" target="_blank">
                 <span class="lang-en">Privacy Policy</span>
                 <span class="lang-de">Datenschutz</span>
             </a>
@@ -632,6 +439,17 @@
                 document.body.classList.replace('lang-en', 'lang-de');
             }
         };
+        function toggleVenueInfo() {
+            var infoDiv = document.getElementById("venueInfo");
+            var btn = document.getElementById("venueBtn");
+            
+            if (infoDiv.style.display === "none") {
+                infoDiv.style.display = "block";
+                // Optional: Change button text if you want, but simple arrow is fine
+            } else {
+                infoDiv.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
